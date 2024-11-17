@@ -2,6 +2,8 @@
 
 void main()
 {
-    char input = 0Xdead;
-    printf("%u",input);
+    int input = 0Xdead;
+    printf("\n%s",input);
+    printf("\n%d",input);
+    printf("\n%c",input);
 }
