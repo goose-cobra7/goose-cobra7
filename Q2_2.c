@@ -3,7 +3,7 @@
 int main()
 {
     int input = 268;
-    printf("old num = %d\n\n",input);
+    printf("old num = %d\n",input);
     int hundred,tens,singles,new_hundred;
     singles = (input % 10);
     tens = ((input - singles) % 100)/10;

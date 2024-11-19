@@ -2,8 +2,8 @@
 
 void main()
 {
-    int input = 0Xdead;
-    printf("\n%s",input);
-    printf("\n%d",input);
-    printf("\n%c",input);
+    unsigned char input = 0xde;
+    unsigned char input2 = 0Xad;
+    
+    printf("\nthe massage is: 0X%X%X",input,input2);
 }
