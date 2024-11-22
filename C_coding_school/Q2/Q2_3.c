@@ -4,7 +4,7 @@ void main()
 {
     int num1,num2,num3,num4;
     num1 = 1;
-    num2 = 2;
+    num2 = 1;
     num3 = -3;
     num4 = 5;
     printf("enter 4 integers: %d %d %d %d\n",num1,num2,num3,num4);
