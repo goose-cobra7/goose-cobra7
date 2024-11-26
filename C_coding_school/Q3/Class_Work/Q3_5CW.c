@@ -5,7 +5,7 @@ void main()
     char grade;
     printf("enter a grade char:[E F G A F]:");
     scanf("%c",&grade);//enter char
-     if (grade>32){//make sure its upper case
+    if (grade>90){//make sure its upper case
         grade -= 32;
     }
     switch (grade)//check if valid and give score
