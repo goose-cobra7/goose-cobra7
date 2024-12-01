@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX_MULTI 40
+#define MAX_MULTI 10
 
 int main()
 {
