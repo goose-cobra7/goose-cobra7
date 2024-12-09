@@ -1,23 +1,51 @@
-#define _CTR_SECURE_NO_WARNINGS
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <unistd.h> // For sleep function
 
-void main() 
+#define SCREEN_WIDTH 40
+#define FRAMES 400
+#define SLEEP_TIME 10000 // 100000 microseconds = 0.01 seconds
+
+void bouncingPoint() {
+    int position = 0;
+    int direction = 1; // 1 for right, -1 for left
+
+    for (int frame = 0; frame < FRAMES; frame++) {
+        // Clear the screen (for Unix-like systems)
+        //printf("\033[2J\033[H");
+
+        // Print the current frame
+        for (int i = 0; i < SCREEN_WIDTH; i++) {
+            if (i == position) {
+                printf("*");
+            } else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+
+        // Update position
+        position += direction;
+
+        // Bounce if we hit the edges
+        if (position == 0 || position == SCREEN_WIDTH - 1) {
+            direction *= -1;
+        }
+
+        // Sleep to control frame rate
+        usleep(SLEEP_TIME);
+    }
+}
+
+int main()
 {
-    int vector_X[3];
-    int vector_Y[3];
-    printf("Enter vector X values:");
-    for (int i = 0; i < 3; i++)
+    int pingpong_fact = 1;
+    if (pingpong_fact == 1)
     {
-        scanf("%d", &vector_X[i]);
-    }
-    printf("Enter vector Y values:");
-    for (int i = 0; i < 3; i++)
-    {
-        scanf("%d", &vector_Y[i]);
-    }
-    for (int i = 0; i < 3; i++)
-    {
-        printf("Dot product of vector X and Y at index %d is: %d\n", i, vector_X[i] + vector_Y[i]);
+        bouncingPoint();
     }
     
+    return 0;
 }
