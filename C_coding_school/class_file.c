@@ -1,18 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int athert(int number)
+int isPerfect(int num) 
 {
-    int sum =number;
-    for (int i = number - 1; i > 0; i--)
-    {
-        sum = sum * i;
-        printf("%d*",i);
-    }   
-    return sum;
+ int sum = 0;
+ for (int i = 1; i <= num / 2; i++)
+ {
+ if (num % i == 0) 
+ {
+ sum += i;
+ }
+ }
+ return sum == num;
 }
-void main()
+
+int main() 
 {
-    int number;
-    scanf("%d",&number);
-    printf("=%d",athert(number));
+ int num;
+ printf("Enter a number: ");
+ scanf("%d", &num);
+
+   
+ if (isPerfect(num))
+ {
+ printf("%d is a perfect number.\n", num);
+ }
+ else
+ {
+ printf("%d is not a perfect number.\n", num);
+ }
+
+ return 0;
 }
