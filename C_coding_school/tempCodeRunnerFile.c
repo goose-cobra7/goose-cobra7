@@ -1,51 +1,38 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <unistd.h> // For sleep function
+int array_order[10];
 
-#define SCREEN_WIDTH 40
-#define FRAMES 400
-#define SLEEP_TIME 10000 // 100000 microseconds = 0.01 seconds
-
-void bouncingPoint() {
-    int position = 0;
-    int direction = 1; // 1 for right, -1 for left
-
-    for (int frame = 0; frame < FRAMES; frame++) {
-        // Clear the screen (for Unix-like systems)
-        //printf("\033[2J\033[H");
-
-        // Print the current frame
-        for (int i = 0; i < SCREEN_WIDTH; i++) {
-            if (i == position) {
-                printf("*");
-            } else {
-                printf(" ");
-            }
-        }
-        printf("\n");
-
-        // Update position
-        position += direction;
-
-        // Bounce if we hit the edges
-        if (position == 0 || position == SCREEN_WIDTH - 1) {
-            direction *= -1;
-        }
-
-        // Sleep to control frame rate
-        usleep(SLEEP_TIME);
+int array[10] = {124,122,123,123,123,123,123,123,123,123};
+int reset_array(int arr[],int arr_size)
+{
+    for (int i = 0; i < arr_size; i++)
+    {
+        arr[i] = 0;
     }
 }
-
-int main()
+int element_digit_count(int arr[],int arr_size)
 {
-    int pingpong_fact = 1;
-    if (pingpong_fact == 1)
+    for (int i = 0; i < arr_size; i++)
     {
-        bouncingPoint();
+        array_order[arr[i]%10]++;
     }
     
+}
+int print_array(int arr[], int arr_size)
+{
+    for (int i = 0; i < arr_size; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+int main(int argc, char const *argv[])
+{
+    print_array(array,10);
+    element_digit_count(array,10);
+    print_array(array_order,10);
+    reset_array(array,10);
+    print_array(array,10);
     return 0;
 }

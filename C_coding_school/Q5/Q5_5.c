@@ -1,18 +1,19 @@
 #include <stdio.h>
-int a(int b) { 
-int c = 0, d = 1, e, f;
-if (b == 0) return c; 
-for (f = 2; f <= b; f++) {
-     e = c + d; 
-     c = d; 
-     d = e; 
+
+int fibonacci(int n) { 
+    int prev = 0, current = 1, next, i;
+    if (n == 0) return prev; 
+    for (i = 2; i <= n; i++) {
+        next = prev + current; 
+        prev = current; 
+        current = next; 
     } 
-    return d; 
+    return current; 
 }
 
 int main() {
     for (int i = 0; i < 10; i++)
     {
-        printf("%d\n",a(i));
+        printf("%d\n", fibonacci(i));
     }
 }
