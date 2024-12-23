@@ -1,38 +1,21 @@
-#include <stdio.h>
-int array_order[10];
+#include <stdio.h> 
 
-int array[10] = {124,122,123,123,123,123,123,123,123,123};
-int reset_array(int arr[],int arr_size)
-{
-    for (int i = 0; i < arr_size; i++)
-    {
-        arr[i] = 0;
-    }
-}
-int element_digit_count(int arr[],int arr_size)
-{
-    for (int i = 0; i < arr_size; i++)
-    {
-        array_order[arr[i]%10]++;
-    }
-    
-}
-int print_array(int arr[], int arr_size)
-{
-    for (int i = 0; i < arr_size; i++)
-    {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-    return 0;
-}
+float foo(float arr[], float v,int i,int length); 
 
-int main(int argc, char const *argv[])
-{
-    print_array(array,10);
-    element_digit_count(array,10);
-    print_array(array_order,10);
-    reset_array(array,10);
-    print_array(array,10);
-    return 0;
+int main() 
+{ 
+    float v,res,arr[] = {1,0,0,-1}; 
+    v = -2.2; 
+    res = foo(arr,v,0,sizeof(arr)/sizeof(arr[0])); 
+    printf("res = %.4f\n",res); 
+    return 0; 
+} 
+
+float foo(float arr[], float v,int i,int length) 
+{ 
+    if(i == length - 1) 
+    { 
+        return arr[i]; 
+    } 
+    return arr[i] + v*foo(arr,v,i+1,length); 
 }

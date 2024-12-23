@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/code vault/goose-cobra7",
-      "program": "d:/code vault/goose-cobra7/build/Release/outRelease",
+      "cwd": "c:/Users/erany/OneDrive/Desktop/code vault/goose-cobra7/C_coding_school/Q7",
+      "program": "c:/Users/erany/OneDrive/Desktop/code vault/goose-cobra7/C_coding_school/Q7/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
