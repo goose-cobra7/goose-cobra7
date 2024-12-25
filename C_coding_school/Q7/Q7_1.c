@@ -2,31 +2,31 @@
 
 #define SIZE 3
 
-int inti_array(float arr[],int size)
+void inti_array(float arr[],int size)
 {
     for (int i = 0; i < size; i++)
     {
-        printf("Enter number %f: ", i + 1);
+        printf("Enter number %d: ", i + 1);
         scanf("%f", &arr[i]);
     }
-    return 0;
 }
 
-int print_array(float arr[], int size)
+void print_array(float arr[], int size)
 {
     for (int i = 0; i < size; i++)
     {
         printf("[%.3f] ", arr[i]); //print format [0.0000] [0.0000] ...
     }
     printf("\n");
-    return 0;
 }
 
 
 int main()
 {
     float arr[SIZE];
+    printf("*inside inti_array*\n");
     inti_array(arr,SIZE);
+    printf("*inside print_array*\n");
     print_array(arr, SIZE);
     return 0;
 }
