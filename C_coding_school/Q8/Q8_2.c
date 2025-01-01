@@ -17,29 +17,29 @@
 int main()
 {
     srand(time(NULL));
-    //TODO: make init with rand num
-    int mat_c[MAT_C_ROW][MAT_C_COL];
+    int mat_c[MAT_C_ROW][MAT_C_COL]; //create output matrix
     //initialize all matrices
-    int mat_a[MAT_A_ROW][MAT_A_COL] ={
-        {1,4,6,3,2,1,2,3,2},
-        {1,4,6,2,3,5,2,1,2},
-        {1,2,5,3,4,6,4,3,1},
-        {3,2,1,4,6,1,1,1,1},
-        {2,5,3,2,1,2,3,4,5}
-    };
-    int mat_b[MAT_B_ROW][MAT_B_COL] = 
+    int mat_a[MAT_A_ROW][MAT_A_COL]; //create A matrix
+    for (int i = 0; i < MAT_A_ROW; i++) //initialize with random number
     {
-        {1,1,2,3,4},
-        {1,2,5,3,2},
-        {1,1,1,1,1},
-        {1,1,1,1,1},
-        {5,2,2,2,2},
-        {2,3,4,1,2},
-        {1,2,1,1,1},
-        {1,1,1,1,1},
-        {5,5,5,3,1}
-    };
+        for (int j = 0; j < MAT_A_COL; j++)
+        {
+            mat_a[i][j] = rand() % 10;
+        }
+    }
+
+
+    int mat_b[MAT_B_ROW][MAT_B_COL]; //create B matrix
+    for (int i = 0; i < MAT_B_ROW; i++) //initialize with random number
+    {
+        for (int j = 0; j < MAT_B_COL; j++)
+        {
+            mat_b[i][j] = rand() % 10;
+        }
+    }
+    
     //print matrix A
+    printf("matrix A:\n");
     for (int i = 0; i < MAT_A_ROW; i++)
     {
         for (int j = 0; j < MAT_A_COL; j++)
@@ -48,6 +48,8 @@ int main()
         }
         printf("\n");
     }
+    printf("\n");
+    printf("matrix B:\n");
     //print matrix B
     for (int i = 0; i < MAT_B_ROW; i++) 
     {
@@ -57,6 +59,8 @@ int main()
         }
         printf("\n");
     }
+    
+    printf("\n");
     //start multiplie HERE
     for (int i = 0; i < MAT_C_ROW; i++) //run on rows in MAT C
     {
@@ -71,11 +75,12 @@ int main()
         }
     }
     //print matrix C
+    printf("multiplications result:\n");
     for (int i = 0; i < MAT_C_COL; i++)
     {
         for (int j = 0; j < MAT_C_ROW; j++)
         {
-            printf("%3d",mat_c[i][j]);
+            printf("%5d",mat_c[i][j]);
         }
         printf("\n");
     }
