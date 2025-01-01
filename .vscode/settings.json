@@ -60,6 +60,9 @@
   "files.associations": {
     "stdlib.h": "c",
     "time.h": "c",
-    "cstdio": "cpp"
+    "cstdio": "cpp",
+    "string.h": "c",
+    "stdio.h": "c",
+    "Q8_3.C": "cpp"
   }
 }
