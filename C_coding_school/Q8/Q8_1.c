@@ -39,6 +39,6 @@ int main() {
         {2, 2, 5, -1, 0, 0, 0, 0},
         {8, 7, 6, -1, 0, 0, 0, 0}
     };
-    flip_rows(mat,ROW_SIZE, 3);
+    flip_rows(mat,ROW_SIZE, 4);
     return 0;
 }
