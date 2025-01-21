@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @goose-cobra7
 - 👀 I’m interested in games
-- 🌱 I’m currently learning electrical engi'
+- 🌱 I’m currently learning electrical engi (Lockheed Martin)
 - 📫 How to reach me: on f18 catch me if you can
 - 😄 Pronouns: aim 120
 - ⚡ Fun fact: wifi is just slow cook microwave
