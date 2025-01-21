@@ -49,8 +49,8 @@ void loop() {
     int fix_rate = 20/1000;
     int left_engine_fix = sensor_int*fix_rate*(-1);
     int right_engine_fix = sensor_int*fix_rate*(1);
-    int speed_left = high_speed + 0;
-    int speed_right = high_speed + 0;
+    int speed_left = high_speed + left_engine_fix;
+    int speed_right = high_speed + right_engine_fix;
 
     digitalWrite(in1,LOW);
     digitalWrite(in2, HIGH);
