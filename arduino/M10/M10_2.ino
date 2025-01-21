@@ -58,7 +58,7 @@ void loop()
     }
     if (sensor1 == 0 && sensor2 == 1 && sensor3 == 0 && sensor4 == 0 && sensor5 == 0)
     {
-      digital_lil_eft()   //-+|--
+      digital_lil_left()   //-+|--
     }
     if (sensor1 == 0 && sensor2 == 1 && sensor3 == 1 && sensor4 == 0 && sensor5 == 0)
     {
@@ -139,7 +139,7 @@ void digital_left()
     digitalWrite(in4, LOW);
     analogWrite(ENB, right_speed*1.3);
 }
-void digital_lil_eft()
+void digital_lil_left()
 {
     digitalWrite(in1,HIGH);
     digitalWrite(in2, LOW);
