@@ -1,59 +1,72 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_number 1000
+#define BUFFER 100 // buffer size for temp holding
 
-char* myltoa(int num);
-int main()
+char* my_int_t_string(int num);
+
+int main(int argc, char const *argv[])
 {
     printf("please enter number: ");
     int num;
-    char *string;
     scanf("%d", &num);
-    string = myltoa(num);
-    printf("string: %s\n", string);
-    free(string); // Free the allocated memory
+    char* str = my_int_t_string(num); //turn my int to string
+    printf("%s", str);
+    free(str); // free memory after usage
     return 0;
 }
 
-char* myltoa(int num)
+char* my_int_t_string(int num)
 {
-    int count = 0;
-    int holder = 0;
-    char temp_array[MAX_number];
     
-    if (num == 0) 
+    int holder = 0; //holder to hold the sign of the number
+    if (num < 0) //check if the number is negative
     {
-        char *string = malloc(2 * sizeof(char));
-        string[0] = '0';
-        string[1] = '\0';
-        return string;
-    }
-
-    if (num < 0)
-    {
-        holder = 1;
         num = -num;
+        holder++;
     }
-    
-    while (num > 0)
+    char temp_arr[BUFFER]; //temp array with buffer will delete at the end of function
+    int i = 0; //index of the array to hold the number
+    while (num > 0)//find each digit of the number
     {
-        temp_array[count++] = num % 10 + '0';
+        temp_arr[i++] = num % 10 + '0';
         num /= 10;
     }
-
-    char *string = malloc((count + holder + 1)*sizeof(char)); 
-    int i;
-    for (i = 0; i < count; i++)
+    char* str = (char*)malloc((i+1) * sizeof(char)); //create memory
+    if (str == NULL)
     {
-        string[i + holder] = temp_array[count - i - 1];
+        printf("memory allocation failed");
+        return NULL;
     }
-    if (holder == 1)
+    if (holder == 0) //had the sign
     {
-        string[0] = '-';
+        str[0] = '+';
+    }else
+    {
+        str[0] = '-';
     }
+    for (int j = 0; j < i; j++)//run from the end to add all numbers to string
+    {
+        str[i-j] = temp_arr[j];
+    }
+    str[i+1] = '\0'; //finish the string with '\0' 
 
-    string[count + holder] = '\0'; 
-
-    return string;
+    return str; //retrun the adress of the first adress of the string
 }
+
+/*In your my_int_t_string function, the following local variables are 
+automatically deleted once the function returns, and they are not sent back to main:
+
+holder: An integer to keep track of whether the input number was negative.
+
+temp_arr: A temporary array used to hold the digits of the number as characters.
+
+i: An integer used as an index for temp_arr.
+
+j: An integer used as an index in the final for loop.
+
+These variables are local to the my_int_t_string 
+function and are stored on the stack. 
+When the function exits, their memory is automatically deallocated. 
+Only the dynamically allocated memory for the str variable is returned to the main function,
+which you handle and eventually free.*/
