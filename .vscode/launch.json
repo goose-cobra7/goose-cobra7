@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/code vault/goose-cobra7/C_coding_school/Training",
-      "program": "d:/code vault/goose-cobra7/C_coding_school/Training/build/Debug/outDebug",
+      "cwd": "c:/Users/erany/OneDrive/Desktop/code vault/goose-cobra7/C_coding_school/Q12/Q12CW",
+      "program": "c:/Users/erany/OneDrive/Desktop/code vault/goose-cobra7/C_coding_school/Q12/Q12CW/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
