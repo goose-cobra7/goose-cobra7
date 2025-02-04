@@ -36,7 +36,12 @@ student* init_5_stu_no_input();
 
 int main(int argc, char const *argv[])
 {
-    student stu_arr = init_5_stu();
+    student* stu_arr = init_5_stu();
+    /*student* stu_arr = init_5_stu_no_input();
+    for (int i = 0; i < 5; i++)
+    {
+        print_stu(stu_arr[i]);
+    }*/                                 //testing purpose
     return 0;
 }
 
@@ -71,7 +76,6 @@ char* create_string()
     fgets(buffer,100,stdin);
     char* new_string = malloc(strlen(buffer)*sizeof(char)+1);
     strcpy(new_string,buffer);
-
     return new_string;
 }
 
@@ -96,7 +100,7 @@ student change_student(student *stu_arr,int arr_place)
     scanf("%f",&avarage_grade);
     printf("enter points:");
     int points;
-        scanf("%d",&points);
+    scanf("%d",&points);
     printf("enter semester:");
     int semester;
     scanf("%d",&semester);
@@ -113,7 +117,7 @@ student print_stu(student stu)
     printf("birth date: %d %d %d\n",stu._human_.birth_date_h.day,stu._human_.birth_date_h.month,stu._human_.birth_date_h.year);
     printf("avrage grade: %f\n",stu.avrage_grade);
     printf("points: %d\n",stu.points);
-    printf("semester: %d\n",stu.semester);
+    printf("semester: %d\n\n",stu.semester);
 }
 
 student init_5_stu() //create 5 students
@@ -130,7 +134,7 @@ student init_5_stu() //create 5 students
     printf("avarge age: %f",age_avarge(stu_arr,5));
 }
 
-student* init_5_stu_no_input() // Initialize 5 students without input
+student* init_5_stu_no_input() // Initialize 5 students without input // for testing purposes
 {
     student* stu_arr = (student*)malloc(5 * sizeof(student));
 
