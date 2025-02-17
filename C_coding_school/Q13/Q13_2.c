@@ -36,7 +36,7 @@ student* init_5_stu_no_input();
 
 int main(int argc, char const *argv[])
 {
-    student* stu_arr = init_5_stu();
+    student stu_arr = init_5_stu();
     /*student* stu_arr = init_5_stu_no_input();
     for (int i = 0; i < 5; i++)
     {
@@ -132,6 +132,7 @@ student init_5_stu() //create 5 students
         print_stu(stu_arr[i]);
     }
     printf("avarge age: %f",age_avarge(stu_arr,5));
+    return *stu_arr;
 }
 
 student* init_5_stu_no_input() // Initialize 5 students without input // for testing purposes

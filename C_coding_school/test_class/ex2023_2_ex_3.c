@@ -38,5 +38,4 @@ Road* shortestRoad(Road* pNav[])
             
         }
     }
-    
 }

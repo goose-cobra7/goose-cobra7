@@ -15,8 +15,22 @@ typedef struct note
 
 int main()
 {
-    char* mystring =  make_string();
-    puts(mystring);
+    note* note_list = {0};
+    while (1)
+    {
+        int choise;
+        scanf("%d",choise);
+        switch (choise)
+        {
+        case 1:
+            printf("--new note--\nheader: ");
+            note_list = add_new_note_to_list(note_list);
+            break;
+        
+        default:
+            break;
+        }
+    }
     return 0;
 }
 
@@ -55,3 +69,30 @@ note make_new_note()
     return new_note;
 }
 
+note* add_new_note_to_list(note* note_list)
+{
+    note new_note = make_new_note();
+    int place = find_place_for_new_note(note_list);//find empty slot
+    if (strlen(note_list) <= place)
+    {
+        realloc(note_list,strlen(note_list)+1);
+    }
+    note_list[place] = new_note;
+    edit_note(note_list,place);
+    return note_list;
+}
+
+int find_place_for_new_note(note* note_list)
+{
+    int place = 0;
+    while (note_list != '\0')
+    {
+        place++;
+    }
+    return place;
+}
+
+note* edit_note(note* note_list,int place)
+{
+    
+}
