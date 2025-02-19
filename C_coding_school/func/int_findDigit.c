@@ -15,3 +15,5 @@ int findDigit(int num, int index)
     
     return digit;
 }
+
+//מוציא את המספר המיקום כמספר יחיד

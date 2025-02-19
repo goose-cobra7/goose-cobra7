@@ -9,3 +9,5 @@ int countDigits(int num)
     
     return count;
 }
+
+//סופר כמה ספרות יש במספר
