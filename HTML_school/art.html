@@ -5,171 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Art Gallery - Goose Workshop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel = "stylesheet" href="art.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    body {
-      background-color: #282c34;
-      color: #abb2bf;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
-    }
-
-    header {
-      background-color: #21252b;
-      padding: 30px;
-      text-align: center;
-      font-size: 2rem;
-      color: #abb2bf;
-      position: sticky;
-      top: 0;
-      z-index: 1000; /* Ensure the header stays on top */
-    }
-
-    section {
-      display: flex;
-      flex: 1;
-      overflow: hidden; /* Prevent overflow */
-    }
-
-    nav {
-      width: 200px;
-      background-color: #282c34;
-      padding: 20px;
-      overflow-y: auto;
-      position: relative;
-    }
-
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin: 10px 0;
-    }
-
-    nav ul li a {
-      color: #abb2bf;
-      text-decoration: none;
-      font-weight: 700;
-      transition: text-shadow 0.3s ease, text-decoration 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      text-decoration: underline;
-    }
-
-    main {
-      flex: 1;
-      padding: 20px;
-      background-color: #32343f;
-      color: #abb2bf;
-      overflow-y: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px;
-    }
-
-    .art-piece {
-      position: relative;
-      overflow: hidden;
-      border-radius: 5px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      width: 100%;
-      padding-bottom: 100%; /* Make the container square */
-    }
-
-    .art-piece img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Ensure the image covers the container */
-    }
-
-    .art-piece:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      transform: scale(1.05);
-    }
-
-    .art-piece .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.0);
-      display: none; /* Hide overlay by default */
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: left;
-      padding: 20px;
-    }
-
-    .art-piece.fullscreen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 2000; /* Ensure fullscreen mode is on top */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .art-piece.fullscreen img {
-      width: 60%;
-      height: auto;
-      object-fit: cover;
-      margin: 5% 5% 10% 5%;
-      border-radius: 4%;
-    }
-
-    .art-piece.fullscreen .overlay {
-  display: flex; /* Show overlay in fullscreen mode */
-  align-items: center; /* Center the text vertically */
-  justify-content: flex-end; /* Align the text to the right */
-  height: 50%; /* Ensure the overlay takes up the full height */
-  padding: 4%;
-}
-
-.art-piece.fullscreen .overlay p {
-  width: 30%;
-  margin: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  border-radius: 5px;
-}
-
-
-    footer {
-      background-color: #282c34;
-      padding: 10px;
-      text-align: center;
-      color: #abb2bf;
-      position: sticky;
-      bottom: 0;
-      z-index: 1000; /* Ensure the footer stays on top */
-    }
   </style>
 </head>
 <body>
   <!-- Header section of the web page -->
   <header>
-    WELCOME TO THE WORKSHOP
+    <h1>ART ZONE</h1>
   </header>
   
   <!-- Navigation and main content section -->
@@ -180,10 +23,19 @@
         <!-- List items with links to different pages -->
         <li><a href="index.html">Home</a></li>
         <li><a href="art.html">Art</a></li>
+        <ul class="sublist">
+          <li><a href="drawing.html">drawing</li>
+          <li><a href="posters.html">posters</li>
+          <li><a href="photos.html">photos</li>
+        </ul>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="gaming.html">Gaming</a></li>
         <li><a href="music.html">Music</a></li>
       </ul>
+        <label for="nsfw-checkbox" class="nsfw-label">
+          Show NSFW Content
+          <input type="checkbox" id="nsfw-checkbox" class="nsfw-checkbox">
+        </label>
     </nav>
     
     <!-- Main content area -->
@@ -231,6 +83,37 @@
           <p>This is a description of Art Image 2.</p>
         </div>
       </div>
+      <div class="art-piece" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="Art Image 2">
+        <div class="overlay">
+          <p>This is a description of Art Image 2.</p>
+        </div>
+      </div>
+      <div class="art-piece" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="Art Image 2">
+        <div class="overlay">
+          <p>This is a description of Art Image 2.</p>
+        </div>
+      </div>
+      <div class="art-piece" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="Art Image 2">
+        <div class="overlay">
+          <p>This is a description of Art Image 2.</p>
+        </div>
+      </div>
+      <div class="art-piece" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="Art Image 2">
+        <div class="overlay">
+          <p>This is a description of Art Image 2.</p>
+        </div>
+      </div>
+      <div class="art-piece" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="Art Image 2">
+        <div class="overlay">
+          <p>This is a description of Art Image 2.</p>
+        </div>
+      </div>
+      
       <!-- Add more images as needed -->
     </main>
   </section>
@@ -245,5 +128,6 @@
       element.classList.toggle('fullscreen');
     }
   </script>
+  <script src="slide_to_show.js"></script>
 </body>
 </html>

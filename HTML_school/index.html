@@ -5,91 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goose Workshop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="basic_css.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    body {
-      background-color: #282c34;
-      color: #abb2bf;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
-    }
-
-    header {
-      background-color: #21252b;
-      padding: 30px;
-      text-align: center;
-      font-size: 2rem;
-      color: #abb2bf;
-      position: sticky;
-      top: 0;
-      z-index: 1000; /* Ensure the header stays on top */
-    }
-
-    section {
-      display: flex;
-      flex: 1;
-      overflow: hidden; /* Prevent overflow */
-    }
-
-    nav {
-      width: 200px;
-      background-color: #282c34;
-      padding: 20px;
-      overflow-y: auto;
-      position: relative;
-    }
-
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin: 10px 0;
-    }
-
-    nav ul li a {
-      color: #abb2bf;
-      text-decoration: none;
-      font-weight: 700;
-      transition: text-shadow 0.3s ease, text-decoration 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-      text-decoration: underline;
-    }
-
-    main {
-      flex: 1;
-      padding: 20px;
-      background-color: #32343f;
-      color: #abb2bf;
-      overflow-y: auto;
-    }
-
-    footer {
-      background-color: #282c34;
-      padding: 10px;
-      text-align: center;
-      color: #abb2bf;
-      position: sticky;
-      bottom: 0;
-      z-index: 1000; /* Ensure the footer stays on top */
+    .invi{
+      visibility: hidden;
     }
   </style>
 </head>
 <body>
   <!-- Header section of the web page -->
   <header>
-    WELCOME TO THE WORKSHOP
+    <h1>WELCOME TO THE WORKSHOP</h1>
   </header>
   
   <!-- Navigation and main content section -->
@@ -98,6 +24,7 @@
     <nav>
       <ul>
         <!-- List items with links to different pages -->
+        <li><a class="invi" href="index.html"> Home</a></li>
         <li><a href="art.html">Art</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="gaming.html">Gaming</a></li>
