@@ -13,6 +13,12 @@ typedef struct note
     char* connection;
 }note;
 
+
+char* make_string();
+void print_note(struct note note_t_print);
+note make_new_note();
+note* add_new_note_to_list(note* note_list);
+
 int main()
 {
     note* note_list = {0};
@@ -48,7 +54,7 @@ char* make_string()
     return string;
 }
 
-void print_note(struct note note_t_print)
+void print_note(const note note_t_print)
 {
     puts(note_t_print.header);
     for (size_t i = 0; i < strlen(note_t_print.the_note) ; i++)
