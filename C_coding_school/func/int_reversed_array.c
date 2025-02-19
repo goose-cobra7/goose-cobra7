@@ -1,10 +1,33 @@
-int reversed_array[ARRAYSIZE]; 
-    int j = ARRAYSIZE - 1;
-    for (int a = 0; a < ARRAYSIZE; a++) //reverse the array
-    {
-        reversed_array[j] = array[a]; //array is the array you choose
-        j--;
+#include <stdio.h>
+#define ARRAYSIZE 4
+
+void reverseArrayInPlace(int array[], int size) {
+    int temp;
+    int start = 0;
+    int end = size - 1;
+    
+    while (start < end) {
+        // Swap the elements
+        temp = array[start];
+        array[start] = array[end];
+        array[end] = temp;
+        
+        // Move the pointers
+        start++;
+        end--;
     }
-    /*it run from from 0 to ARRAYSIZE on the array and flip it to show in the 
-    reversed_array*/
-    //pay attention to getting all the elements in the function colored meaning used
+}
+
+int main() {
+    int array[ARRAYSIZE] = {1, 2, 3, 4}; // Initialize the array
+    
+    // Call the reverseArrayInPlace function
+    reverseArrayInPlace(array, ARRAYSIZE);
+    
+    // Print the reversed array to verify
+    for (int a = 0; a < ARRAYSIZE; a++) {
+        printf("%d ", array[a]);
+    }
+    
+    return 0;
+}
