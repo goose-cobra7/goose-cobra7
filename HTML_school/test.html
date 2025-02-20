@@ -3,55 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Spinning Icon with Spring Effect</title>
   <style>
-    html, body {
-      height: 100%;
-      padding: 0px;
-      margin: 0px;
+    /* Keyframes for spinning animation */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(180deg) scale(1.2);
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
     }
-    .top {
-      background-color: red;
-      width: auto;
-      height: 10%;
-      padding: 10px 10px;
-      border-style: solid;
-      border-width: 10px;
-      border-color: black;
-      border-radius: 50px;
+
+    /* Initial styles for the icon */
+    .icon {
+      display: inline-block;
+      font-size: 50px;
+      transition: transform 0.5s ease-in-out;
     }
-    .nav{
-      background-color: aqua;
-      float: left;
-      width: 20%;
-      height: 80%;
-    }
-    .main{
-      background-color: black;
-      float: left;
-      width: 80%;
-      height: 80%;
-    }
-    .footer{
-      background-color: aquamarine;
-      clear:left;
-      width: auto;
-      height: 10%;
-      margin-top: auto;
-      
-    }
-    h1{
-      margin: 0;
-      text-align: center;
+
+    /* Class to apply spinning animation */
+    .spin {
+      animation: spin 1s ease-in-out;
     }
   </style>
 </head>
 <body>
-  <div class="top">
-    <h1>my new</h1>
-  </div>
-  <div class="nav"></div>
-  <div class="main"></div>
-  <div class="footer"></div>
+  <!-- Icon element -->
+  <div class="icon">🔄</div>
+
+  <script>
+    // Get the icon element
+    const icon = document.querySelector('.icon');
+
+    // Function to add the spin class
+    function addAnimation() {
+      icon.classList.add('spin');
+      // Remove the class after animation ends
+      icon.addEventListener('animationend', () => {
+        icon.classList.remove('spin');
+      });
+    }
+
+    // Add click event listener to the icon
+    icon.addEventListener('click', addAnimation);
+  </script>
 </body>
 </html>

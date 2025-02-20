@@ -1,0 +1,8 @@
+.element {
+    animation-name: fadeIn; /* Name of the animation */
+    animation-duration: 2s; /* Duration of the animation */
+    animation-timing-function: ease-in-out; /* Timing function */
+    animation-delay: 0s; /* Delay before the animation starts */
+    animation-iteration-count: 1; /* Number of times the animation repeats */
+  }
+  
