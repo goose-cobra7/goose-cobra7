@@ -9,8 +9,8 @@ int main()
 //int metrix   
     int matrix[MAT_SIZE_Y][MAT_SIZE_X] = {
         {1,2,3},
-        {1,2,3},
-        {1,2,3}
+        {4,5,6},
+        {7,8,9}
     };
     //print metrix
     printf("the original metrix: \n");
@@ -55,8 +55,6 @@ int mirror(int arr[][3])
         {
             arr[i][j] = temp[i][j];
             //return to the original metrix
-        }
-        
+        }   
     }
-    
 }

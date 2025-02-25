@@ -6,19 +6,19 @@
   }
 
   body {
-    background-color: #282c34;
-    color: #abb2bf;
+    background-color: #3C3D37;
+    color: #ECDFCC;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
 
   header {
-    background-color: #21252b;
+    background-color: #181C14;
     padding: 0px;
     text-align: center;
     font-size: 2rem;
-    color: #abb2bf;
+    color: #ECDFCC;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -26,6 +26,7 @@
     align-items: center;
     justify-content: center;
     height: 150px;
+    
   }
 
   .goose_left {
@@ -42,7 +43,7 @@
 
   nav {
     width: 200px;
-    background-color: #282c34;
+    background-color: #3C3D37;
     padding: 20px;
     overflow-y: auto;
     position: relative;
@@ -58,7 +59,7 @@
   }
 
   nav ul li a {
-    color: #abb2bf;
+    color: #ECDFCC;
     text-decoration: none;
     font-weight: 700;
   }
@@ -83,13 +84,15 @@
   main {
     flex: 1;
     padding: 20px;
-    background-color: #32343f;
-    color: #abb2bf;
+    background-color: #697565;
+    color: #ECDFCC;
     overflow-y: auto;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
 
   footer {
-    background-color: #282c34;
+    background-color: #181C14;
     padding: 10px;
     text-align: center;
     color: #abb2bf;

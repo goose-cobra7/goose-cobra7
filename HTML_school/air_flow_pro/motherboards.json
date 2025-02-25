@@ -1,0 +1,7 @@
+{
+    "motherboards": [
+        { "name": "ATX", "slots": { "gpus": 2, "fans": 6 } },
+        { "name": "Micro-ATX", "slots": { "gpus": 1, "fans": 4 } },
+        { "name": "Mini-ITX", "slots": { "gpus": 1, "fans": 2 } }
+    ]
+}

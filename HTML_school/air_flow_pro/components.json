@@ -1,0 +1,50 @@
+{
+    "componentTypes": [
+      {
+        "type": "CPU",
+        "dimensions": [10, 10, 5],
+        "airflowImpact": 0.3,
+        "heatOutput": 65
+      },
+      {
+        "type": "GPU",
+        "dimensions": [20, 10, 4],
+        "airflowImpact": 0.5,
+        "heatOutput": 150
+      },
+      {
+        "type": "Fan",
+        "dimensions": [5, 5, 1],
+        "airflowImpact": 0.1,
+        "heatOutput": 0
+      }
+    ],
+    "cases": [
+      {
+        "name": "Default Case",
+        "fanSlots": [
+          {"position": [5, 5, 0], "size": [5, 5]},
+          {"position": [45, 5, 0], "size": [5, 5]},
+          {"position": [5, 45, 0], "size": [5, 5]},
+          {"position": [45, 45, 0], "size": [5, 5]},
+          {"position": [25, 5, 0], "size": [5, 5]},
+          {"position": [25, 45, 0], "size": [5, 5]}
+        ]
+      }
+    ],
+    "motherboardTypes": [
+      {
+        "name": "ATX",
+        "slots": {"gpus": 2, "fans": 6}
+      },
+      {
+        "name": "Micro-ATX",
+        "slots": {"gpus": 1, "fans": 4}
+      },
+      {
+        "name": "Mini-ITX",
+        "slots": {"gpus": 1, "fans": 2}
+      }
+    ]
+  }
+  

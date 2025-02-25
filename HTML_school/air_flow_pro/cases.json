@@ -1,0 +1,16 @@
+{
+    "cases": [
+        {
+            "name": "Default Case",
+            "dimensions": [50, 20, 50],
+            "fanSlots": [
+                { "position": [5, 5, 0], "size": [5, 5] },
+                { "position": [45, 5, 0], "size": [5, 5] },
+                { "position": [5, 45, 0], "size": [5, 5] },
+                { "position": [45, 45, 0], "size": [5, 5] },
+                { "position": [25, 5, 0], "size": [5, 5] },
+                { "position": [25, 45, 0], "size": [5, 5] }
+            ]
+        }
+    ]
+}

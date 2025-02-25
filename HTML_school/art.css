@@ -6,19 +6,19 @@
   }
 
   body {
-    background-color: rgb(41, 44, 51);
-    color: #abb2bf;
+    background-color: #3C3D37;
+    color: #ECDFCC;
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
   }
 
   header {
-    background-color: #21252b;
+    background-color: #181C14;
     padding: 30px;
     text-align: center;
     font-size: 2rem;
-    color: #abb2bf;
+    color: #ECDFCC;
     top: 0;
     z-index: 1000; /* Ensure the header stays on top */
     height: 150px;
@@ -32,7 +32,7 @@
 
   nav {
     width: 200px;
-    background-color: #282c34;
+    background-color: #3C3D37;
     padding: 20px;
     position: sticky;
     top: 0;
@@ -51,7 +51,7 @@
   }
 
   nav ul li a {
-    color: #abb2bf;
+    color: #ECDFCC;
     text-decoration: none;
     font-weight: 700;
     transition: text-shadow 0.3s ease, text-decoration 0.3s ease;
@@ -65,12 +65,14 @@
   main {
     flex: 1;
     padding: 20px;
-    background-color: #32343f;
-    color: #abb2bf;
+    background-color: #697565;
+    color: #ECDFCC;
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
 
   .art-piece {
@@ -165,7 +167,7 @@ border-radius: 5px;
   appearance: none;
   width: 16px;
   height: 16px;
-  border: 2px solid #abb2bf;
+  border: 2px solid #ECDFCC;
   border-radius: 3px;
   background-color: transparent;
   cursor: pointer;
@@ -177,7 +179,7 @@ border-radius: 5px;
   display: flex;
   align-items: center;
   margin: 10px 0;
-  color: #abb2bf;
+  color: #ECDFCC;
   text-decoration: none;
   font-weight: 700;
   cursor: pointer;
@@ -199,15 +201,15 @@ border-radius: 5px;
 
 .nsfw-label:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  border: 3px solid rgb(138, 138, 138);
+  border: 3px solid #ECDFCC;
   transition: all 0.3s ease
 }
 
 footer {
-    background-color: #282c34;
+    background-color: #181C14;
     padding: 10px;
     text-align: center;
-    color: #abb2bf;
+    color: #ECDFCC;
     position: sticky;
     bottom: 0;
     z-index: 1000; /* Ensure the footer stays on top */

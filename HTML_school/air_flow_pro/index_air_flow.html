@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Airflow and Heat Testing</title>
+    <link rel="stylesheet" href="index_air_flow.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <button class="add-btn">+</button>
+                <h2>Components</h2>
+                <div class="dropdowns">
+                    <select id="component-type-dropdown">
+                        <option value="">Select Component Type</option>
+                    </select>
+                    <select id="component-dropdown">
+                        <option value="">Select Component</option>
+                    </select>
+                </div>
+            </div>
+            <ul id="components-list">
+                <!-- Components will be dynamically added here -->
+            </ul>
+        </div>
+        <div class="main">
+            <div class="header">
+                <h2>PC Case</h2>
+                <div class="controls">
+                    <button class="run-btn">Run</button>
+                    <label><input type="checkbox" id="toggle-heatmap"> Heat Map</label>
+                    <label><input type="checkbox" id="toggle-arrows"> Air Flow</label>
+                </div>
+            </div>
+            <div class="pc-case">
+                <!-- Fan slots will be added dynamically here -->
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <button class="trash-btn">Trash</button>
+    </div>
+    <script src="index_air_flow.js"></script>
+</body>
+</html>
