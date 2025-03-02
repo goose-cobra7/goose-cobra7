@@ -4,43 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Art Gallery - Goose Workshop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
-  <link rel = "stylesheet" href="art.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="art.css">
   <style>
+    .nsfw-hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <!-- Header section of the web page -->
   <header>
     <h1>ART ZONE: Posters</h1>
   </header>
   
-  <!-- Navigation and main content section -->
   <section>
-    <!-- Navigation section -->
     <nav>
       <ul>
-        <!-- List items with links to different pages -->
         <li><a href="index.html">Home</a></li>
         <li><a href="art.html">Art</a></li>
         <ul class="sublist">
-          <li><a href="drawing.html">drawing</li>
-          <li><a href="posters.html">posters</li>
-          <li><a href="photos.html">photos</li>
+          <li><a href="drawing.html">drawing</a></li>
+          <li><a href="posters.html">posters</a></li>
+          <li><a href="photos.html">photos</a></li>
         </ul>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="gaming.html">Gaming</a></li>
         <li><a href="music.html">Music</a></li>
       </ul>
-        <label for="nsfw-checkbox" class="nsfw-label">
-          Show NSFW Content
-          <input type="checkbox" id="nsfw-checkbox" class="nsfw-checkbox">
-        </label>
+      <label for="nsfw-checkbox" class="nsfw-label">
+        Show NSFW Content
+        <input type="checkbox" id="nsfw-checkbox" class="nsfw-checkbox">
+      </label>
     </nav>
     
-    <!-- Main content area -->
     <main>
-      <!-- Example images for the collage -->
       <div class="art-piece" onclick="expandArt(this)">
         <img src="image.png" alt="Art Image 1">
         <div class="overlay">
@@ -53,72 +50,75 @@
           <p>This is a description of Art Image 2.</p>
         </div>
       </div>
-      <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
+      <div class="art-piece nsfw-hidden" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="NSFW Art Image 3">
         <div class="overlay">
-          <p>This is a description of Art Image 2.</p>
+          <p>This is a NSFW description of Art Image 3.</p>
         </div>
       </div>
       <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
+        <img src="image2.jpg" alt="Art Image 4">
         <div class="overlay">
           <p>This is a descrsakdbasbdaj hjh ja djksdhadjaj sjha sjhdg jahg sjhasgjdha jhgdjh ajhd hja gjhdgjha gjhhdga hjgdjah gdjhg ajh gddjhasg dhjg jhag dhag jhdghja gjh ga.</p>
         </div>
       </div>
-      <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
+      <div class="art-piece nsfw-hidden" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="NSFW Art Image 5">
         <div class="overlay">
-          <p>This is a description of Art Image 2.</p>
+          <p>This is a description of NSFW Art Image 5.</p>
         </div>
       </div>
       <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
+        <img src="image2.jpg" alt="Art Image 6">
         <div class="overlay">
-          <p>This is a description of Art Image 2.</p>
+          <p>This is a description of Art Image 6.</p>
         </div>
       </div>
       <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
+        <img src="image2.jpg" alt="Art Image 7">
         <div class="overlay">
-          <p>This is a description of Art Image 2.</p>
+          <p>This is a description of Art Image 7.</p>
+        </div>
+      </div>
+      <div class="art-piece nsfw-hidden" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="NSFW Art Image 8">
+        <div class="overlay">
+          <p>This is a description of NSFW Art Image 8.</p>
         </div>
       </div>
       <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
+        <img src="image2.jpg" alt="Art Image 9">
         <div class="overlay">
-          <p>This is a description of Art Image 2.</p>
+          <p>This is a description of Art Image 9.</p>
         </div>
       </div>
       <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
+        <img src="image2.jpg" alt="Art Image 10">
         <div class="overlay">
-          <p>This is a description of Art Image 2.</p>
+          <p>This is a description of Art Image 10.</p>
+        </div>
+      </div>
+      <div class="art-piece nsfw-hidden" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="NSFW Art Image 11">
+        <div class="overlay">
+          <p>This is a description of NSFW Art Image 11.</p>
         </div>
       </div>
       <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
+        <img src="image2.jpg" alt="Art Image 12">
         <div class="overlay">
-          <p>This is a description of Art Image 2.</p>
+          <p>This is a description of Art Image 12.</p>
         </div>
       </div>
       <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
+        <img src="image2.jpg" alt="Art Image 13">
         <div class="overlay">
-          <p>This is a description of Art Image 2.</p>
+          <p>This is a description of Art Image 13.</p>
         </div>
       </div>
-      <div class="art-piece" onclick="expandArt(this)">
-        <img src="image2.jpg" alt="Art Image 2">
-        <div class="overlay">
-          <p>This is a description of Art Image 2.</p>
-        </div>
-      </div>
-      
-      <!-- Add more images as needed -->
     </main>
   </section>
   
-  <!-- Footer section -->
   <footer>
     Additional links and added stuff
   </footer>
@@ -126,6 +126,22 @@
   <script>
     function expandArt(element) {
       element.classList.toggle('fullscreen');
+    }
+
+    const nsfwCheckbox = document.getElementById('nsfw-checkbox');
+    const nsfwItems = document.querySelectorAll('.nsfw-hidden');
+
+    nsfwCheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        nsfwItems.forEach(item => item.style.display = 'block');
+      } else {
+        nsfwItems.forEach(item => item.style.display = 'none');
+      }
+    });
+
+    // Initial state: hide NSFW if unchecked
+    if (!nsfwCheckbox.checked) {
+      nsfwItems.forEach(item => item.style.display = 'none');
     }
   </script>
   <script src="slide_to_show.js"></script>

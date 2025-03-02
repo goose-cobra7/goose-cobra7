@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery - Goose Workshop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="art.css">
+  <style>
+    .sublist {
+      display: none;
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    nav ul li:hover .sublist {
+      display: block;
+    }
+
+    .art-piece {
+      display: block;
+    }
+
+    .nsfw-hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ART ZONE</h1>
+  </header>
+
+  <section>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#" id="all-art-link">Art</a>
+          <ul class="sublist">
+            <li><a href="#" data-art-type="drawing">Drawing</a></li>
+            <li><a href="#" data-art-type="posters">Posters</a></li>
+            <li><a href="#" data-art-type="photos">Photos</a></li>
+          </ul>
+        </li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gaming.html">Gaming</a></li>
+        <li><a href="music.html">Music</a></li>
+      </ul>
+      <label for="nsfw-checkbox" class="nsfw-label">
+        Show NSFW Content
+        <input type="checkbox" id="nsfw-checkbox" class="nsfw-checkbox">
+      </label>
+    </nav>
+
+    <main>
+      <div class="art-piece drawing" onclick="expandArt(this)">
+        <img src="image.png" alt="Art Image 1">
+        <div class="overlay">
+          <p>This is a descrsakdbasbdaj hjh ja djksdhadjaj sjha sjhdg jahg sjhasgjdha jhgdjh ajhd hja gjhdgjha gjhhdga hjgdjah gdjhg ajh gddjhasg dhjg jhag dhag jhdghja gjh ga.</p>
+        </div>
+      </div>
+      <div class="art-piece posters" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="Art Image 2">
+        <div class="overlay">
+          <p>This is a description of Art Image 2.</p>
+        </div>
+      </div>
+      <div class="art-piece photos" onclick="expandArt(this)">
+        <img src="image2.jpg" alt="Art Image 2">
+        <div class="overlay">
+          <p>This is a description of Art Image 2.</p>
+        </div>
+      </div>
+      <div class="art-piece drawing nsfw-hidden" onclick="expandArt(this)">
+        <img src="nsfw_image1.jpg" alt="NSFW Drawing 1">
+        <div class="overlay">
+          <p>NSFW Drawing Description 1.</p>
+        </div>
+      </div>
+      <div class="art-piece posters nsfw-hidden" onclick="expandArt(this)">
+        <img src="nsfw_poster1.jpg" alt="NSFW Poster 1">
+        <div class="overlay">
+          <p>NSFW Poster Description 1.</p>
+        </div>
+      </div>
+      <div class="art-piece photos nsfw-hidden" onclick="expandArt(this)">
+        <img src="nsfw_photo1.jpg" alt="NSFW Photo 1">
+        <div class="overlay">
+          <p>NSFW Photo Description 1.</p>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <footer>
+    Additional links and added stuff
+  </footer>
+
+  <script>
+    function expandArt(element) {
+      element.classList.toggle('fullscreen');
+    }
+
+    document.querySelectorAll('nav .sublist a').forEach(item => {
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        const artType = event.target.dataset.artType;
+        document.querySelectorAll('.art-piece').forEach(piece => {
+          if (piece.classList.contains(artType)) {
+            piece.style.display = 'block';
+          } else {
+            piece.style.display = 'none';
+          }
+        });
+        // Reset NSFW checkbox and hide NSFW content when changing art types
+        document.getElementById('nsfw-checkbox').checked = false;
+        document.querySelectorAll('.nsfw-hidden').forEach(item => {
+          item.style.display = 'none';
+        });
+      });
+    });
+
+    document.getElementById('all-art-link').addEventListener('click', function(event){
+      event.preventDefault();
+      document.querySelectorAll('.art-piece').forEach(piece => {
+        piece.style.display = 'block';
+      });
+      // Reset NSFW checkbox and hide NSFW content when showing all art
+      document.getElementById('nsfw-checkbox').checked = false;
+      document.querySelectorAll('.nsfw-hidden').forEach(item => {
+        item.style.display = 'none';
+      });
+    });
+
+    document.getElementById('nsfw-checkbox').addEventListener('change', function() {
+      if (this.checked) {
+        document.querySelectorAll('.nsfw-hidden').forEach(item => {
+          item.style.display = 'block';
+        });
+      } else {
+        document.querySelectorAll('.nsfw-hidden').forEach(item => {
+          item.style.display = 'none';
+        });
+      }
+    });
+  </script>
+  <script src="slide_to_show.js"></script>
+</body>
+</html>

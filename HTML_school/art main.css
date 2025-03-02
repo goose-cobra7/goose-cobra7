@@ -69,31 +69,12 @@
     color: #ECDFCC;
     overflow-y: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
   }
 
-  .art-piece {
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    width: 100%;
-    height: 20%;
-    padding-bottom: 100%; /* Make the container square */
-  }
-
-  .art-piece img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the image covers the container */
-  }
+  
 
   .art-piece:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -127,43 +108,21 @@
     max-height: 200px; /* Adjust this value based on the height of your sublist */
   }
 
-  .art-piece.fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2000; /* Ensure fullscreen mode is on top */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.showcase
+{
+  display: grid;
 
-  .art-piece.fullscreen img {
-    width: 60%;
-    height: auto;
-    object-fit: cover;
-    margin: 5% 5% 10% 5%;
-    border-radius: 4%;
-  }
-
-  .art-piece.fullscreen .overlay {
-display: flex; /* Show overlay in fullscreen mode */
-align-items: center; /* Center the text vertically */
-justify-content: flex-end; /* Align the text to the right */
-height: 50%; /* Ensure the overlay takes up the full height */
-padding: 4%;
+  width: 500px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  transform: scale(0.9);
 }
-
-.art-piece.fullscreen .overlay p {
-width: 30%;
-margin: 20px;
-background-color: rgba(0, 0, 0, 0.7);
-padding: 20px;
-border-radius: 5px;
+.showcase:hover
+{
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: scale(0.98);
+  transition: all 0.3s ease;
 }
-
 .nsfw-checkbox {
   appearance: none;
   width: 16px;

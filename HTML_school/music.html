@@ -5,40 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goose workshop music</title>
     <link rel="stylesheet" href="basic_css.css">
+    <link rel="stylesheet" href="music.css">
+    <style>
+
+    </style>
 </head>
 
-
-<body>  <!-- Header section of the web page -->
+<body>
     <header>
         <h1>Goose Workshop MUSIC</h1>
     </header>
-    <!-- Navigation and main content section -->
     <section>
-      <!-- Navigation section -->
-      <nav>
-        <ul>
-          <!-- List items with links to different pages -->
-          <li><a href="index.html">Home</a></li>
-          <li><a href="art.html">Art</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="gaming.html">Gaming</a></li>
-          <li><a href="music.html">Music</a></li>
-        </ul>
-      </nav>
-      
-      <!-- Main content area -->
-      <main>
-        <p>Welcome to my workshop.</p>
-        <h2>What can you expect:</h2>
-        <p>
-          What you can expect from here is art I'm making, projects I'm working on, or just my hobbies and memories.
-        </p>
-      </main>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="art.html">Art</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="gaming.html">Gaming</a></li>
+                <li><a href="music.html">Music</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+          <p>Welcome to my workshop.</p>
+          <h2>What can you expect:</h2>
+          <p>
+            What you can expect from here is art I'm making, projects I'm working on, or just my hobbies and memories.
+          </p>
+          <div class="music-box">
+            <h3>Music</h3>
+            <div class="music_item"> 
+                <div class="audio-player">
+                    <audio id="audio" controls>
+                      <source src="gardens-stylish-chill-303261.mp3" type="audio/mp3">
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                <div>
+                  <img class="music-image" src="image.png" alt="image">
+                </div>
+            </div>
+          </div>
+        </main>
     </section>
     
-    <!-- Footer section -->
     <footer>
-      Additional links and added stuff
+        Additional links and added stuff
     </footer>
-  </body>
+</body>
 </html>

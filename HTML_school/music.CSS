@@ -1,0 +1,28 @@
+/* Combine music.CSS styles here for simplicity or keep separate */
+.music_item {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: left; /* Horizontally center items */
+    gap: 20px; /* Space between audio and image */
+    padding-top: 20px;
+}
+
+.music-image {
+    max-width: 300px; /* Adjust as needed */
+    height: auto;
+    border-radius: 5px;
+}
+.music-image:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.music-box{
+    padding: 10px;
+    border: 2px solid #3C3D37;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+
+}
+
+p{
+    margin-bottom: 20px;
+}
