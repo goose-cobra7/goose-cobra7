@@ -6,6 +6,7 @@
             "type": "shell",
             "command": "gcc",
             "args": [
+                "-Wall",
                 "-g",
                 "${file}",
                 "-o",
