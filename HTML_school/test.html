@@ -1,217 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Goose Workshop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="basic_css.css">
-  <style>
-    .invi{
-      visibility: hidden;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Webpage</title>
+    <!-- Link to CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        section {
+            padding: 20px;
+        }
+        button {
+            background-color: #0d157a;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header section of the web page -->
-  <header>
-    <h1>WELCOME TO THE WORKSHOP</h1>
-  </header>
-  
-  <!-- Navigation and main content section -->
-  <section>
-    <!-- Navigation section -->
-    <nav>
-      <ul>
-        <!-- List items with links to different pages -->
-        <li><a class="invi" href="index.html"> Home</a></li>
-        <li><a href="art.html">Art</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="gaming.html">Gaming</a></li>
-        <li><a href="music.html">Music</a></li>
-      </ul>
-    </nav>
-    
-    <!-- Main content area -->
-    <main>
-      <p>#projects 
-        <em>I&#39;m taking this project also as opportunity to learn more and expend my knowledge worst case scenario we get cool models, documentation and plus we learn more cool stuff</em></p>
-        <h1 id="the-plan">the plan</h1>
-        <p>the plan is to scan the one part we have scan the area of assembly on the car, using softer refine it and make it to 3d model, send it either to 3d print or to laser cutting and welding
-        3d printing is easier but also cheaper and look way worst then 3d metal part by laser: this is way we using the 3d model to make 2 parts; one for 3d print and one for metal fabrication</p>
-        <h1 id="schedule-in-excel-format">Schedule in Excel Format:</h1>
-        <table>
-        <thead>
-        <tr>
-        <th><strong>Day</strong></th>
-        <th><strong>Time</strong></th>
-        <th><strong>Task</strong></th>
-        </tr>
-        </thead>
-        <tbody><tr>
-        <td>Day 1</td>
-        <td>16:00 - 17:00</td>
-        <td>Preparation (cleaning the part)</td>
-        </tr>
-        <tr>
-        <td></td>
-        <td>17:00 - 19:00</td>
-        <td>Scanning the part</td>
-        </tr>
-        <tr>
-        <td></td>
-        <td>19:00 - 20:00</td>
-        <td>Post-processing scan data</td>
-        </tr>
-        <tr>
-        <td>Day 2</td>
-        <td>16:00 - 17:00</td>
-        <td>Import scan data into CAD software</td>
-        </tr>
-        <tr>
-        <td></td>
-        <td>17:00 - 20:00</td>
-        <td>Begin modeling the part</td>
-        </tr>
-        <tr>
-        <td>Day 3</td>
-        <td>16:00 - 20:00</td>
-        <td>Continue modeling the part</td>
-        </tr>
-        <tr>
-        <td>Day 4</td>
-        <td>16:00 - 20:00</td>
-        <td>Finalize the model</td>
-        </tr>
-        <tr>
-        <td>Day 5</td>
-        <td>16:00 - 17:00</td>
-        <td>Export the model as an STL file</td>
-        </tr>
-        <tr>
-        <td></td>
-        <td>17:00 - 20:00</td>
-        <td>Slice the model and generate G-code</td>
-        </tr>
-        <tr>
-        <td>Day 6</td>
-        <td>16:00 - 17:00</td>
-        <td>Set up the 3D printer</td>
-        </tr>
-        <tr>
-        <td></td>
-        <td>17:00 - 21:00</td>
-        <td>Start and monitor the print job</td>
-        </tr>
-        <tr>
-        <td>Day 7</td>
-        <td>16:00 - 20:00</td>
-        <td>Continue printing (if needed)</td>
-        </tr>
-        <tr>
-        <td></td>
-        <td>20:00 - 21:00</td>
-        <td>Post-processing the printed part</td>
-        </tr>
-        <tr>
-        <td>Day 8</td>
-        <td>16:00 - 17:00</td>
-        <td>Inspect the printed part</td>
-        </tr>
-        <tr>
-        <td></td>
-        <td>17:00 - 20:00</td>
-        <td>Fix any issues and make adjustments</td>
-        </tr>
-        <tr>
-        <td></td>
-        <td>20:00 - 21:00</td>
-        <td>Reprint if necessary</td>
-        </tr>
-        </tbody></table>
-        <h1 id="apps-in-use-for-project">apps in use for project</h1>
-        <p>3d modeling - blender
-        for scan review and pipelining </p>
-        <p>3d scanning - meshroom
-        free, opensource software for 3d scanning using camera
-        <a href="https://github.com/alicevision/Meshroom?tab=readme-ov-file">https://github.com/alicevision/Meshroom?tab=readme-ov-file</a></p>
-        <p>3d printing - 
-        cad - onshape
-        easy, free, cad software for basic work and planing</p>
-        <h1 id="3d-scanning-plan">3d scanning plan</h1>
-        <p>i know that the 3d scanning we use here is not perfect definitely not for the cad work we do, but it will allow us to make the progress way fester, focusing and the difficult part like modeling holes and precise shape and aligning the models.
-        plus i might the chance to 3d scan more part.
-        creating library of parts.</p>
-        <h1 id="photo-file-for-scanner">photo file for scanner</h1>
-        <p>so we done with the first photoshoot session we got something off 150-200 pics 
-        ![[meshroom pic1.png|716]]
-        we started by just throwing it all to the software and letting at run the first stages, if more photos need then we can just grab the camera and go take more. 
-        the camera i use <a href="https://www.photoreview.com.au/reviews/advanced-compact-cameras/fixed-lens/nikon-coolpix-p100/">nikon coolpix p100</a>
-        but you can use any camera or phone
-        ![[nikon p100.jpg|297]]
-        we run the software until the <a href="https://alicevision.org/#photogrammetry/sfm">Structure from Motion stage</a></p>
-        <h2 id="gpu-meshroom">GPU meshroom</h2>
-        <p>we run into problems with MeshRoom and cuda cores (Nvidia GPU). mesh room said to be using gpu to optimize part of the process (some task are better done with GPU). but when we run the software we found that only the cpu run. we dug into it.
-        solution: GPU is part of the pc that take jobs that need processing, in long story short, if you don&#39;t the gpu you want him to join the fight is just sitting there.
-        so we went to the Nvidia control panel and change it to include MeshRoom in the softwares list of the gpu</p>
-        <h2 id="fixing-needed">fixing needed</h2>
-        <p>![[meshroom scan point zoom in missing area.webp|350]]
-        as you can see even though we took 109 pic we missed a spot, this calls for taking the camera and going to shoot even more in the missing area.
-        ![[mesh room pipeline of work.webp]]
-        the process is easy as just putting more pic into the project and running the process again. the only diffrent now you have 2 branch the old computation and the new combining.
-        so the top line is the old and the bottom one is the new pipeline.
-        and thx for the GPU fix we done, the old branch and the fix only being 60 pics the process run way faster.
-        by the look of things because of the dark area of the shadow i couldn&#39;t get the fix to fill the missing hole. but we might try to fix it in the postprocess. it should be all good cause its not a complex part to model and fix.
-        ![[meshroom dot scan match points.webp|447]]
-        the green square is the area of the problem. the shadows was so dark compere to the other parts and picture that the software could not find matching features between the pictures. 
-        the red square is floating points left from mismatching of the feature matching. i hope the cleanup will fix this and would not create artifact.</p>
-        <h1 id="final-scanned-model">final scanned model</h1>
-        <p>![[mesh room landrover back part left scan mash.webp|389]] 
-        <em>the 3D scan in the MeshRoom. the more dark the more tringles and vertices and better accuracy</em>
-        the black/gray area is the mash having a lot of detail, a lot of tringles. which is good.
-        now e do the same for the other side of the car the side that missing the part. 
-        then we match the parts clean them and go for the next step.
-        after having the 2 parts in post process in right size and and good optimization, we are pass the hard part of the project and its smooth ride.
-        ![[landrover back left part project meshroom blender.webp|375]] 
-        <em>the 3d scan of the left side in Blender</em>
-        the same part in blender. cant believe how easy it is. just drag and drop.</p>
-        <h2 id="second-model">second model</h2>
-        <p>the second model was easy as the first, with same amount of problems. we needed to take some more photos. but it worked like a charm the most important think is to see if the holes as bean detected by the software
-        ![[landrover in blender.webp]]
-        2 off the models in blender with texturing</p>
-        <h2 id="fixing-the-model">fixing the model</h2>
-        <p>the model is out with a lot of holes and tears, and needing fix. 
-        i researched a little bit and found meshleb
-        free software to do exactly this</p>
-        <p>so in meshlab i clean and fix what i can throw it back to blender for more fix
-        ill tell you all the steps later</p>
-        <p>then upload it to onshape
-        onshape doesn&#39;t like the obj type and really doesn&#39;t like the scans, causing me more pain</p>
-        <p>after uploading the model with better topology, its time to make some cad.</p>
-        <h2 id="the-process-and-pain-for-right-topology">the process (and pain) for right topology</h2>
-        <p><em>i will say that for the next project what we going to do is just better and longer scanning.
-        this will solve a lot of problems like holes and large imperfections</em></p>
-        <h1 id="cad-model">cad model</h1>
-        <h2 id="what-we-need-to-make">what we need to make</h2>
-        <p>for start we need to align  the models with right accuracy and measurement
-        one model give as the shape we want
-        end second model give us the holes placement
-        after this we get fully cade model for printing</p>
-        <h1 id="3d-print-ready">3d print ready</h1>
-        <h1 id="metal-part-plaining">metal part plaining</h1>
-        <p>aluminum</p>
-        <h1 id="printing">printing</h1>
-        <h1 id="finalizing-and-assembly">finalizing and assembly</h1>
-        <h1 id="websites">websites</h1>
-        <p><a href="https://mcarpenter.ds.lib.uw.edu/3ddigitizationtoolkit/?page_id=234&form=MG0AV3">https://mcarpenter.ds.lib.uw.edu/3ddigitizationtoolkit/?page_id=234&amp;form=MG0AV3</a>
-        <a href="https://www.meshlab.net">https://www.meshlab.net</a></p>
-        
-    </main>
-  </section>
-  
-  <!-- Footer section -->
-  <footer>
-    Additional links and added stuff
-  </footer>
+    <!-- HTML Structure -->
+    <header>
+        <h1>Welcome to My Webpage</h1>
+    </header>
+    <section>
+        <p>Click the button below to see a greeting:</p>
+        <button onclick="showGreeting()">Click Me</button>
+        <p id="message"></p>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        function showGreeting() {
+            const messageElement = document.getElementById("message");
+            messageElement.textContent = "Hello, World! Welcome to this webpage.";
+        }
+    </script>
 </body>
 </html>

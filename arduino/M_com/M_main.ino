@@ -1,15 +1,15 @@
 #include <QTRSensors.h>
 
-#define digi1 2 //color:
-#define digi2 3 //color:
-#define digi3 4 //color:
-#define digi4 5 //color:
-#define digi5 6 //color:
+#define digi1 12 //color:
+#define digi2 11 //color:
+#define digi3 10 //color:
+#define digi4 9 //color:
+#define digi5 8 //color:
 
-#define in2 11 //left //color:
-#define ENA 9 //left //color:
-#define in3 12 //right //color:
-#define ENB 10 //right //color:
+#define in2 4 //left //color:
+#define ENA 5 //left //color:
+#define in3 2 //right //color:
+#define ENB 3 //right //color:
 
 #define control 7
 

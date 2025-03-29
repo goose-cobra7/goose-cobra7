@@ -1,15 +1,16 @@
 #include <QTRSensors.h>
 //settings
-#define digi1 A3 //color:
-#define digi2 A3 //color:
-#define digi3 A4 //color:
-#define digi4 A5 //color:
-#define digi5 A6 //color:
+#define digi1 8 //color:
+#define digi2 9 //color:
+#define digi3 10 //color:
+#define digi4 11 //color:
+#define digi5 12 //color:
 
-#define in2 11 //left //color: orenge
-#define ENA 9//left //color: brown
-#define in3 12 //A2 //right //color: blue
-#define ENB 10 //right //color: red
+
+#define in2 4 //left //color:
+#define ENA 5 //left //color:
+#define in3 2 //right //color:
+#define ENB 3 //right //color:
 
 #define control 7
 
@@ -30,7 +31,6 @@ QTRSensors qtr;
 
 uint16_t sensorValues[SensorCount];
 int threshold[SensorCount];
-// Initialize the QTRSensors object
 
 int I_error;
 int prev_error;

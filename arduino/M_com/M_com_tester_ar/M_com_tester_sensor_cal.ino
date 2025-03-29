@@ -1,8 +1,9 @@
-#define digi1 2 // Leftmost sensor
-#define digi2 3 // Left sensor
-#define digi3 4 // Center sensor
-#define digi4 5 // Right sensor
-#define digi5 6 // Rightmost sensor
+#define digi1 12 //color:
+#define digi2 11 //color:
+#define digi3 10 //color:
+#define digi4 9 //color:
+#define digi5 8 //color:
+
 
 #define SensorCount 5
 
