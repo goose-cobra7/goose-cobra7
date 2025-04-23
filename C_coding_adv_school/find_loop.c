@@ -171,49 +171,28 @@ Node* makeList(int len)
 }
 
 //assume that if the function encounters an error, it returns false (but changes isResultValid to false)
-int isLooped(Node* head, int* isResultValid)//את זה צריך לממש
+
+int isLooped(Node* head,int* isResultValid)
 {
-
-
-    Node *Jp = head; //slow ass
-    Node *Ip = head; //fast ass
-    int dis = 0; 
-    int over_all_Jp = 0,over_all_Ip = 0;
-    int new_distance = 0, old_distance = 1;
-    while (new_distance < old_distance)
+    Node *TF = head, *TS = head;
+    int isLoop = 0,i = 0;
+    while (TF->next->next)
     {
-        new_distance = old_distance; 
-        old_distance = 0; //reset distance checker
-        Ip = head->next;
-        if(Ip == NULL){return 0;}
-        Ip = head->next;
-        if(Ip == NULL){return 0;}
-        if (Ip == Jp)
-        {
-            break;
-        }
-        Jp = head->next; 
-        over_all_Jp++;
-        over_all_Ip += 2;
-        
+        *isResultValid = 1;
+        TF = TF->next->next;
+        if (TF == TS){isLoop = 1;break;}
+        TS = TS->next;
+        if (TF == TS){isLoop = 1;break;}
     }
-
-
-
-    return TRUE;
-    /*Method 1 - very very inefficient*/
-
-    //1.iterate over the list and for every node do the following
-    //2.    save the address of the current node in a dynamic array
-    //3.    if, when inserting the address to the array,
-    //      it is already found in
-    //      the array, the aswer is YES (a loop exists)
-    //      //### reallocate the array if it gets full
-    //4. if NULL is reached, the answer in NO (a loop doesn't exist)
-
-    /*method 1 - sol */
-
-    /*Method 2 - classic solution*/
-    //race between 2 pointers - fast pointer, slow pointer
+    if(isLoop == 0){return 0;}
+    TF = TF->next;
+    i = 1;
+    while (TF!=TS)
+    {
+        TF->next;
+        i++;
+    }
+    
+    return 1;
     
 }

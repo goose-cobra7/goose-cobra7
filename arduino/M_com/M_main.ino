@@ -14,22 +14,27 @@
 #define control 7
 
 #define SensorCount 5 
-#define BASE_SPEED 70 //145
-#define MAX_SPEED 140 //255
+#define BASE_SPEED 160 //145
+#define MAX_SPEED 250 //255
 #define LOW_SPEED 37 //37
 
+#define CRITICAL_SPEED 1000
+#define MAX_ENGLE 400
 
-#define Kp 1.0
-#define Ki 0.2
-#define Kd 0.5
 
-int on_white = 0;
+#define Kp 0.9
+#define Ki 0
+#define Kd 1
+
+//int out_of_line = 0;
 // Initialize the QTRSensors object
 
 int I_error;
 int prev_error;
 float PID;
 int lsp,rsp;
+
+int how_much_to_slow_in_angle = 0;
 
 void setup() {
     //engine settings
@@ -68,52 +73,80 @@ int PIDfix(int error)
 {
     static int count = 0;
     //if(error == 0){I_error = 0;}else{I_error += error/100;}
-
-    PID = float(error)*Kp + float(error-prev_error)*Kd + float(I_error)*Ki;
+    check_engle(error);
+    PID = float(error)*Kp + float(error-prev_error)*Kd /*+ float(I_error)*Ki*/;
     count++;
-    if(count > 40&& prev_error != error){prev_error = error; count = 0;}
+    if(count > 400&& prev_error != error){prev_error = error; count = 0;}
     //Serial.print(error);
     //Serial.print(" ");
-    Serial.println(PID);
+    //Serial.println(PID);
     return (int)PID/(2000/BASE_SPEED);
     
 }
 
+int check_engle(int error)
+{
+    if((error > MAX_ENGLE || error < (-1)*MAX_ENGLE) && how_much_to_slow_in_angle < CRITICAL_SPEED)
+    {
+        how_much_to_slow_in_angle++;
+        
+    }else if (error == 0)
+    {
+        how_much_to_slow_in_angle = 0;
+    }
+    //Serial.println(how_much_to_slow_in_angle); //debug check
+}
+
 void engine_control(int PID_error,int out_of_line)
 {
-
+    static int count_on_white = 0;
     static int prev_fix = 0;
-    lsp = BASE_SPEED - PID_error;
-    rsp = BASE_SPEED + PID_error;
+    lsp = (BASE_SPEED-(how_much_to_slow_in_angle/10)) - PID_error;
+    rsp = (BASE_SPEED-(how_much_to_slow_in_angle/10)) + PID_error;
     
     lsp = constrain(lsp, LOW_SPEED, MAX_SPEED);
     rsp = constrain(rsp, LOW_SPEED, MAX_SPEED);
-
-    if (out_of_line == -1) //if all on black move stright
+    //Serial.println(out_of_line);
+    if (out_of_line == 1) //if all on black move stright
     { //כאשר הכל שחור סע ישר
         lsp = BASE_SPEED;
         rsp = BASE_SPEED;
-    }else if (out_of_line == 1) //if out of line repeat last move
-    { //שאתה מחוץ לקו בצע פעולה אחרונה
-        lsp = BASE_SPEED - prev_fix;
-        rsp = BASE_SPEED + prev_fix;
-        PID_error = prev_error; //make sure to continue
-    }
-    
-    digitalWrite(in2, 1); //drive forword
-    digitalWrite(in3, 1); //drive forword
+    }else if (out_of_line == -1) //if out of line repeat last move
+    { //if all white continue stright
+        lsp = BASE_SPEED;
+        rsp = BASE_SPEED;
+        if(count_on_white < 400 && count_on_white != 0)
+        {
+            edge_case_1();
+            count_on_white = 0;
+        }else
+        {
+            count_on_white = 0;
+        }
+    }else{
+      digitalWrite(in2, 1); //drive forword
+      digitalWrite(in3, 1); //drive forword
+    count_on_white++;
+      analogWrite(ENA, lsp);
+      analogWrite(ENB, rsp);
+      prev_fix = PID_error; //save last move
+    }   
+}
 
-    analogWrite(ENA, lsp);
-    analogWrite(ENB, rsp);
-    delay(40);
-    prev_fix = PID_error; //save last move
+void edge_case_1()
+{
+    analogWrite(ENA, 0);
+    analogWrite(ENB, 250);
+    delay(400);
+    analogWrite(ENA, BASE_SPEED);
+    analogWrite(ENB, BASE_SPEED);
 }
 
 int out_of_line(int s1, int s2, int s3, int s4, int s5)
 {
-    if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH) {return 1;}
-    if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == LOW && s5 == LOW) {return -1;}
-    return 0;
+    if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH) {return 1;} //all black
+    if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == LOW && s5 == LOW) {return -1;} //all white
+    return 0; //on line
 }
 
 int calculatePosition(int s1, int s2, int s3, int s4, int s5) {

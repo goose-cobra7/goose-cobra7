@@ -1,10 +1,10 @@
 #include <QTRSensors.h>
 //settings
-#define digi1 8 //color:
-#define digi2 9 //color:
+#define digi1 12 //color:
+#define digi2 11 //color:
 #define digi3 10 //color:
-#define digi4 11 //color:
-#define digi5 12 //color:
+#define digi4 9 //color:
+#define digi5 8 //color:
 
 
 #define in2 4 //left //color:
