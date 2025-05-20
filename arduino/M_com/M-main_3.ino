@@ -14,12 +14,16 @@
 #define control 7
 
 #define SensorCount 5 
-#define BASE_SPEED 160 //145
+#define BASE_SPEED 100 //145
 #define MAX_SPEED 250 //255
 #define LOW_SPEED 37 //37
+#define SPEED_HAZARD 29
+
+#define CRITICAL_SPEED 10
+#define MAX_ENGLE 1000
 
 
-#define Kp 0.9
+#define Kp 0.8
 #define Ki 0
 #define Kd 1
 
@@ -30,6 +34,11 @@ int I_error;
 int prev_error;
 float PID;
 int lsp,rsp;
+
+//float startTime;
+//float endTime;
+
+int how_much_to_slow_in_angle = 0;
 
 void setup() {
     //engine settings
@@ -51,7 +60,11 @@ void setup() {
     //digitalWrite(LED_BUILTIN, LOW);
 }
 
+
+
 void loop() {
+  //startTime = millis();  // Record start time
+
     // Read digital sensor values
     int sensor1 = digitalRead(digi1) == LOW ? HIGH : LOW; // Invert: HIGH for black, LOW for white
     int sensor2 = digitalRead(digi2) == LOW ? HIGH : LOW;
@@ -62,13 +75,15 @@ void loop() {
     int position = calculatePosition(sensor1, sensor2, sensor3, sensor4, sensor5);
     
     engine_control(PIDfix(position),out_of_line(sensor1, sensor2, sensor3, sensor4, sensor5));
+    //endTime = millis(); 
+    //Serial.println(endTime - startTime); 
 }
 
 int PIDfix(int error)
 {
     static int count = 0;
     //if(error == 0){I_error = 0;}else{I_error += error/100;}
-
+    check_engle(error);
     PID = float(error)*Kp + float(error-prev_error)*Kd /*+ float(I_error)*Ki*/;
     count++;
     if(count > 400&& prev_error != error){prev_error = error; count = 0;}
@@ -79,12 +94,23 @@ int PIDfix(int error)
     
 }
 
+int check_engle(int error)
+{
+    if((error > MAX_ENGLE) && how_much_to_slow_in_angle < CRITICAL_SPEED)//add speed
+    {
+        how_much_to_slow_in_angle =+ 20;
+    }else if (error == 0 && how_much_to_slow_in_angle > 80)
+    {
+        how_much_to_slow_in_angle = how_much_to_slow_in_angle-10;
+    }
+    //Serial.println(how_much_to_slow_in_angle); //debug check
+}
+
 void engine_control(int PID_error,int out_of_line)
 {
-
     static int prev_fix = 0;
-    lsp = BASE_SPEED - PID_error;
-    rsp = BASE_SPEED + PID_error;
+    lsp = (BASE_SPEED-(how_much_to_slow_in_angle)) - PID_error;
+    rsp = (BASE_SPEED-(how_much_to_slow_in_angle)) + PID_error;
     
     lsp = constrain(lsp, LOW_SPEED, MAX_SPEED);
     rsp = constrain(rsp, LOW_SPEED, MAX_SPEED);
@@ -95,26 +121,29 @@ void engine_control(int PID_error,int out_of_line)
         rsp = BASE_SPEED;
     }else if (out_of_line == -1) //if out of line repeat last move
     { //שאתה מחוץ לקו בצע פעולה אחרונה
+        if(prev_fix < 0){
         lsp = BASE_SPEED - prev_fix;
         rsp = BASE_SPEED + prev_fix;
-        PID_error = prev_error; //make sure to continue
-    }else{
+        PID_error = prev_fix;
+        } else{
+          lsp = BASE_SPEED + SPEED_HAZARD;
+          rsp = BASE_SPEED - SPEED_HAZARD;}//make sure to continue
+    }
       digitalWrite(in2, 1); //drive forword
       digitalWrite(in3, 1); //drive forword
 
       analogWrite(ENA, lsp);
       analogWrite(ENB, rsp);
-      prev_fix = PID_error; //save last move
+      prev_fix = PID_error;
+      //Serial.println(prev_fix); //save last move
 }
-    }
-    
-    
+
 
 int out_of_line(int s1, int s2, int s3, int s4, int s5)
 {
-    if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH) {return 1;}
-    if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == LOW && s5 == LOW) {return -1;}
-    return 0;
+    if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH) {return 1;} //all black
+    if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == LOW && s5 == LOW) {return -1;} //all white
+    return 0; //on line
 }
 
 int calculatePosition(int s1, int s2, int s3, int s4, int s5) {
